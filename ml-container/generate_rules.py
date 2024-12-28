@@ -6,9 +6,12 @@ from mlxtend.preprocessing import TransactionEncoder
 import datetime
 import os
 import logging
+import ssl
 
 # Configuração do logger
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
+
+ssl._create_default_https_context = ssl._create_unverified_context
 
 # Constantes
 MIN_SUP_RATIO = 0.05  # Reduzido para facilitar a detecção de conjuntos frequentes
@@ -77,7 +80,9 @@ def main():
     start_time = time.time()
     try:
         # Carregando dados
-        df = load_data(DATA_PATH)
+        dataset_url = os.getenv('DATASET_URL')
+
+        df = pd.read_csv(dataset_url)
         print_time_elapsed(start_time, "Dados carregados")
 
         # Gerando playlists
