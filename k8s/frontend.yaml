@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-deployment
+  namespace: joaoferreira
+  labels:
+    app: joaoferreira-project
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: joaoferreira-project
+  template:
+    metadata:
+      labels:
+        app: joaoferreira-project
+    spec:
+      containers:
+        - name: joaoferreira-project
+          image: joaojoaovf/frontend-container:latest
+          ports:
+            - containerPort: 52035
+          volumeMounts:
+            - mountPath: /app/models
+              name: model-storage
+      volumes:
+        - name: model-storage
+          persistentVolumeClaim:
+            claimName: pvc-frontend
