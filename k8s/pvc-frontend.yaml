@@ -13,4 +13,4 @@ spec:
   selector:
     matchLabels:
       namespace: joaoferreira
-  # volumeName: project2-pv2-joaoferreira
+  volumeName: project2-pv2-joaoferreira
