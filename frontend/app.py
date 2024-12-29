@@ -21,8 +21,8 @@ class CustomModel:
 def load_model(path):
     print('a')
     try:
-        with open(model_path, 'wb') as file:
-            pickle.dump(custom_model, file) 
+        with open(path, 'rb') as file:
+            return pickle.load(file) 
     except Exception as e:
         logging.error(f"Erro ao carregar o modelo: {e}")
         return None
