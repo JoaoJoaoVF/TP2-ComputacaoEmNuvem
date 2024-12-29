@@ -1,18 +1,16 @@
 apiVersion: v1
-kind: PersistentVolume
+kind: PersistentVolumeClaim
 metadata:
+  name: project2-pvc-joaoferreira
   namespace: joaoferreira
-  name: project2-pv2-joaoferreira
-  labels:
-    type: local
 spec:
-  storageClassName: default-storage-class-joaoferreira
+  storageClassName: default-storage-joaoferreira-luizagomes
   accessModes:
     - ReadWriteMany
-  capacity:
-    storage: 1Gi
-  persistentVolumeReclaimPolicy: Recycle
+  resources:
+    requests:
+      storage: 1Gi
   selector:
     matchLabels:
-      namespace: joaoferreira
+      namespace: luizagomes
   volumeName: project2-pv2-joaoferreira
