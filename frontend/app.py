@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify, make_response
 from flask_cors import CORS
-import pickle
+import dill as pickle
 from dataclasses import dataclass
 import logging
 
@@ -19,9 +19,10 @@ class CustomModel:
     model_date: str = None
 
 def load_model(path):
+    print('a')
     try:
-        with open(path, 'rb') as file:
-            return pickle.load(file)
+        with open(model_path, 'wb') as file:
+            pickle.dump(custom_model, file) 
     except Exception as e:
         logging.error(f"Erro ao carregar o modelo: {e}")
         return None
