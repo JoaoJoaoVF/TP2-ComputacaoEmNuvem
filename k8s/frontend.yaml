@@ -27,4 +27,5 @@ spec:
         - name: model-storage
           persistentVolumeClaim:
             claimName: pvc-frontend
-  progressDeadlineSeconds: 600
+  progressDeadlineSeconds: 3600
+  imagePullPolicy: Always
