@@ -20,4 +20,4 @@ spec:
       volumes:
         - name: model-storage
           persistentVolumeClaim:
-            claimName: pvc-frontend
+            claimName: project2-pv2-joaoferreira
