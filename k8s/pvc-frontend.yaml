@@ -4,7 +4,7 @@ metadata:
   name: project2-pvc-joaoferreira
   namespace: joaoferreira
 spec:
-  storageClassName: default-storage-joaoferreira-luizagomes
+  storageClassName: default-storage-joaoferreira
   accessModes:
     - ReadWriteMany
   resources:
@@ -12,5 +12,5 @@ spec:
       storage: 1Gi
   selector:
     matchLabels:
-      namespace: luizagomes
+      namespace: joaoferreira
   volumeName: project2-pv2-joaoferreira
