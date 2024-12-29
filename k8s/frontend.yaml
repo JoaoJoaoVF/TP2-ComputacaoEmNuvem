@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: joaoferreira-project
-          image: joaojoaovf/frontend-container:latest
+          image: joaojoaovf/frontend:latest
           ports:
             - containerPort: 52035
           env:
