@@ -28,4 +28,3 @@ spec:
           persistentVolumeClaim:
             claimName: project2-pv2-joaoferreira
   progressDeadlineSeconds: 3600
-  imagePullPolicy: Always
