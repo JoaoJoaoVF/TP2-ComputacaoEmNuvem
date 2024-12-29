@@ -21,7 +21,7 @@ spec:
           ports:
             - containerPort: 52035
           volumeMounts:
-            - mountPath: /app/models
+            - mountPath: /frontend
               name: model-storage
       volumes:
         - name: model-storage

@@ -14,10 +14,10 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(
 ssl._create_default_https_context = ssl._create_unverified_context
 
 # Constantes
-MIN_SUP_RATIO = 0.1  # Reduzido para facilitar a detecção de conjuntos frequentes
+MIN_SUP_RATIO = 0.07  # Reduzido para facilitar a detecção de conjuntos frequentes
 MIN_CONF = 0.1
 DATA_PATH = 'data/2023_spotify_ds1.csv'
-MODEL_PATH = 'association_rules.pkl'
+MODEL_PATH = '/frontend/association_rules.pkl'
 
 class CustomModel:
     def __init__(self, rules):

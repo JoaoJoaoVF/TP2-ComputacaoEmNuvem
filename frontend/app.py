@@ -8,7 +8,7 @@ app = Flask(__name__)
 CORS(app, resources={r"/api/*": {"origins": "*"}})
 app.config['JSON_SORT_KEYS'] = False
 
-MODEL_PATH = '../ml-container/association_rules.pkl'
+MODEL_PATH = '/frontend/association_rules.pkl'
 
 # Configuração do logger
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
