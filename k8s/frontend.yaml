@@ -27,3 +27,4 @@ spec:
         - name: model-storage
           persistentVolumeClaim:
             claimName: pvc-frontend
+  progressDeadlineSeconds: 600
