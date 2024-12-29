@@ -5,10 +5,10 @@ metadata:
   namespace: joaoferreira
 spec:
   selector:
-    app: frontend
+    app: joaoferreira-project
   ports:
     - protocol: TCP
       port: 52035
       targetPort: 52035
-      nodePort: 32035 
+      nodePort: 32035
   type: NodePort
