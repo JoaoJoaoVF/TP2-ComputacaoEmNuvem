@@ -48,8 +48,8 @@ def get_recommendations(songs, custom_model):
 
     return list(recommended_playlist)
 
-@app.route('/api/recommend', methods=['POST'])
-def recommend():
+@app.route('/api/recommender', methods=['POST'])
+def recommender():
     try:
         data = request.get_json()
 
