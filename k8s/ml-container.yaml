@@ -16,7 +16,7 @@ spec:
           volumeMounts:
             - mountPath: /data
               name: ml-model-volume
-          command: ["python3", "model.py"]
+          command: ["python3", "generate_rules.py"]
       restartPolicy: Never
       volumes:
         - name: ml-model-volume
