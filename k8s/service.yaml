@@ -10,5 +10,5 @@ spec:
     - protocol: TCP
       port: 52035
       targetPort: 52035
+      nodePort: 32035 
   type: NodePort
-  externalTrafficPolicy: Cluster

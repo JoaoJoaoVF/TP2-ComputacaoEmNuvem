@@ -1,21 +1,18 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: batch/v1
+kind: Job
 metadata:
-  name: ml-container
-  namespace: joaoferreira 
+  name: ml-container-job
+  namespace: joaoferreira
 spec:
-  replicas: 1
+  backoffLimit: 4
   template:
-    metadata:
-      labels:
-        app: joaoferreira-project
     spec:
       containers:
         - name: ml-container
           image: joaojoaovf/ml-container:latest
-           env:
-        - name: DATASET_URL
-          value: https://homepages.dcc.ufmg.br/~cunha/hosted/cloudcomp-2023s2-datasets/2023_spotify_ds1.csv
+          env:
+            - name: DATASET_URL
+              value: https://homepages.dcc.ufmg.br/~cunha/hosted/cloudcomp-2023s2-datasets/2023_spotify_ds1.csv
           volumeMounts:
             - mountPath: /app/data
               name: model-storage
@@ -24,4 +21,3 @@ spec:
         - name: model-storage
           persistentVolumeClaim:
             claimName: pvc-frontend
-  backoffLimit: 4
