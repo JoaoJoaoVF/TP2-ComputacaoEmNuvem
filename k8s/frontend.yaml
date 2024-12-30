@@ -6,7 +6,7 @@ metadata:
   labels:
     app: joaoferreira-project
 spec:
-  replicas: 1
+  replicas: 10
   selector:
     matchLabels:
       app: joaoferreira-project
