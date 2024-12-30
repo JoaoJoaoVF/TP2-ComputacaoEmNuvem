@@ -6,7 +6,7 @@ metadata:
   labels:
     app: joaoferreira-project
 spec:
-  replicas: 10
+  replicas: 5
   selector:
     matchLabels:
       app: joaoferreira-project
@@ -22,7 +22,7 @@ spec:
             - containerPort: 52035
           env:
             - name: DATASET_URL
-              value: https://raw.githubusercontent.com/JoaoJoaoVF/TP2-ComputacaoEmNuvem/refs/heads/main/data/2023_spotify_ds1.csv
+              value: https://raw.githubusercontent.com/JoaoJoaoVF/TP2-ComputacaoEmNuvem/refs/heads/main/data/2023_spotify_ds2.csv
           volumeMounts:
             - mountPath: /data
               name: persistent-storage

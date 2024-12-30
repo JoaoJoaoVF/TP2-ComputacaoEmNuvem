@@ -16,7 +16,7 @@ ssl._create_default_https_context = ssl._create_unverified_context
 # Constantes
 MIN_SUP_RATIO = 0.03  # Reduzido para facilitar a detecção de conjuntos frequentes
 MIN_CONF = 0.1
-DATA_PATH = 'data/2023_spotify_ds1.csv'
+DATA_PATH = 'data/2023_spotify_ds2.csv'
 MODEL_PATH = '/data/association_rules.pkl'
 
 def print_time_elapsed(start_time, message):
