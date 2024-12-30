@@ -14,15 +14,10 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(
 ssl._create_default_https_context = ssl._create_unverified_context
 
 # Constantes
-MIN_SUP_RATIO = 0.07  # Reduzido para facilitar a detecção de conjuntos frequentes
+MIN_SUP_RATIO = 0.03  # Reduzido para facilitar a detecção de conjuntos frequentes
 MIN_CONF = 0.1
 DATA_PATH = 'data/2023_spotify_ds1.csv'
 MODEL_PATH = '/data/association_rules.pkl'
-
-class CustomModel:
-    def __init__(self, rules):
-        self.rules = rules
-        self.model_date = None
 
 def print_time_elapsed(start_time, message):
     elapsed_time = time.time() - start_time
@@ -70,11 +65,15 @@ def save_model(rules, model_path):
     Salva o modelo treinado em um arquivo pickle.
     """
     logging.info("Salvando modelo...")
-    custom_model = CustomModel(rules)
-    custom_model.model_date = datetime.datetime.now().strftime("%d/%m/%Y, %H:%M:%S")
+
+    # Salvando diretamente as regras no arquivo
+    model_data = {
+        'rules': rules,
+        'model_date': datetime.datetime.now().strftime("%d/%m/%Y, %H:%M:%S")
+    }
 
     with open(model_path, 'wb') as file:
-        pickle.dump(custom_model, file)
+        pickle.dump(model_data, file)
 
 def main():
     start_time = time.time()
