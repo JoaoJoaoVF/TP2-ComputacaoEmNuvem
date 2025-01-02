@@ -1,0 +1,24 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: ml-container-job
+  namespace: joaoferreira
+spec:
+  backoffLimit: 4
+  template:
+    spec:
+      containers:
+        - name: ml-container
+          image: joaojoaovf/ml-container:latest
+          env:
+            - name: DATASET_URL
+              value: https://raw.githubusercontent.com/JoaoJoaoVF/TP2-ComputacaoEmNuvem/refs/heads/main/data/2023_spotify_ds1.csv
+          volumeMounts:
+            - mountPath: /data
+              name: persistent-storage
+          command: ["python3", "generate_rules.py"]
+      restartPolicy: Never
+      volumes:
+        - name: persistent-storage
+          persistentVolumeClaim:
+            claimName: project2-pvc-joaoferreira

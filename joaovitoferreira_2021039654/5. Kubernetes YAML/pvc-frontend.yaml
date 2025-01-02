@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: project2-pvc-joaoferreira
+  namespace: joaoferreira
+spec:
+  storageClassName: default-storage-class-joaoferreira
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 300Mi
+  selector:
+    matchLabels:
+      namespace: joaoferreira
+  volumeName: project2-pv2-joaoferreira

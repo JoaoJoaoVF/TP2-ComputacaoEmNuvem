@@ -1,0 +1,33 @@
+docker build -t joaojoaovf/ml-container:latest -f ml-container.dockerfile .
+docker build -t joaojoaovf/ml-container:0.2 -t joaojoaovf/ml-container:latest -f frontend.dockerfile .
+docker push joaojoaovf/ml-container:latest
+docker push joaojoaovf/ml-container:0.2
+docker run --rm joaojoaovf/ml-container:latest
+
+
+docker build -t joaojoaovf/frontend:latest -f frontend.dockerfile .
+docker build -t joaojoaovf/frontend:0.2 -t joaojoaovf/frontend:latest -f frontend.dockerfile .
+docker push joaojoaovf/frontend:latest
+docker push joaojoaovf/frontend:0.2
+docker run --rm joaojoaovf/frontend:latest
+
+kubectl delete all --all -n joaoferreira
+kubectl -n joaoferreira apply -f k8s/ml-container.yaml
+kubectl -n joaoferreira apply -f k8s/frontend.yaml
+kubectl -n joaoferreira apply -f k8s/service.yaml
+
+
+senha rancher -> KKWf.Gcp9DGg_-sFDFn.
+
+wget --server-response \
+    --output-document response.out \
+    --header='Content-Type: application/json' \
+    --post-data '{"songs": ["Closer", "Let Me Love You", "Stronger"]}' \
+    http://localhost:52035/api/recommender
+
+wget --server-response     --output-document response.out     --header='Content-Type: application/json'     --post-data '{"songs": ["Yesterday", "Bohemian Rhapsody"]}'     http://10.42.0.182:52035/api/recommender
+
+docker push joaojoaovf/ml-container:latest
+docker push joaojoaovf/frontend-container:latest
+
+

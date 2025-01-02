@@ -1,0 +1,11 @@
+project: joaoferreira-project
+source:
+  repoURL: https://github.com/JoaoJoaoVF/TP2-ComputacaoEmNuvem
+  path: ./k8s
+  targetRevision: HEAD
+destination:
+  server: https://kubernetes.default.svc
+  namespace: joaoferreira
+syncPolicy:
+  automated:
+    selfHeal: true

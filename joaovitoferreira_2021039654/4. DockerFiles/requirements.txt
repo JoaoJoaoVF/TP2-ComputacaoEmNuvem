@@ -1,0 +1,7 @@
+pandas
+fpgrowth_py
+mlxtend
+flask
+flask-cors
+pickle-mixin
+dill

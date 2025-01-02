@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-deployment
+  namespace: joaoferreira
+  labels:
+    app: joaoferreira-project
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: joaoferreira-project
+  template:
+    metadata:
+      labels:
+        app: joaoferreira-project
+    spec:
+      containers:
+        - name: joaoferreira-project
+          image: joaojoaovf/frontend:latest
+          ports:
+            - containerPort: 52035
+          env:
+            - name: DATASET_URL
+              value: https://raw.githubusercontent.com/JoaoJoaoVF/TP2-ComputacaoEmNuvem/refs/heads/main/data/2023_spotify_ds1.csv
+          volumeMounts:
+            - mountPath: /data
+              name: persistent-storage
+      volumes:
+        - name: persistent-storage
+          persistentVolumeClaim:
+            claimName: project2-pvc-joaoferreira
+  progressDeadlineSeconds: 3600
